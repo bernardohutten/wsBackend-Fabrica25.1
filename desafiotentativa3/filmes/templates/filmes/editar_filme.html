@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    
+
+<h1>Editar Filme</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" value="{{ filme.titulo }}" required><br>
+    <label for="ano">Ano:</label>
+    <input type="text" id="ano" name="ano" value="{{ filme.ano }}" required><br>
+    <label for="diretor">Diretor:</label>
+    <select id="diretor" name="diretor" required>
+        {% for diretor in diretores %}
+            <option value="{{ diretor.id }}" {% if diretor.id == filme.diretor.id %}selected{% endif %}>
+                {{ diretor.nome }}
+            </option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Salvar</button>
+</form>
+<a href="{% url 'lista_filmes' %}">Cancelar</a>
+</body>
+</html>

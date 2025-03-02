@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sincronizar</title>
+</head>
+<body>
+    
+
+
+<h1>Sincronizar Filme da API OMDb</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="titulo">Título do Filme:</label>
+    <input type="text" id="titulo" name="titulo" required>
+    <button type="submit">Buscar e Sincronizar</button>
+</form>
+<a href="{% url 'lista_filmes' %}">Cancelar</a>
+</body>
+</html>

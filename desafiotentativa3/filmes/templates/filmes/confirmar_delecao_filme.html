@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar</title>
+</head>
+<body>
+    
+
+<h1>Deletar Filme</h1>
+<p>Tem certeza que deseja deletar "{{ filme.titulo }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim, deletar</button>
+</form>
+<a href="{% url 'lista_filmes' %}">Cancelar</a>
+</body>
+</html>
